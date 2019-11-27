@@ -15,6 +15,6 @@ public class GreeterTest {
         String message = Greeter.greet(name);
 
         // then
-        assertThat(message).isEqualTo("Hello, John!");
+        assertThat(message).isEqualTo("Hello, John");
     }
 }
