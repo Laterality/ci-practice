@@ -17,4 +17,16 @@ public class GreeterTest {
         // then
         assertThat(message).isEqualTo("Hello, John!");
     }
+
+    @Test
+    void bye() {
+        // given
+        String name = "John";
+
+        // when
+        String message = Greeter.bye(name);
+
+        // then
+        assertThat(message).isEqualTo("Bye, John!");
+    }
 }
