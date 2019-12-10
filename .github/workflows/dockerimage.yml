@@ -19,3 +19,10 @@ jobs:
         docker login -u ${{ secrets.docker_username }} --password ${{ secrets.docker_password }}
         docker push laterality/greeter:latest
 
+    - uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./build/reports/jacoco/report.xml
+        name: codecov-umbrella
+        fail_ci_if_error: true
+
