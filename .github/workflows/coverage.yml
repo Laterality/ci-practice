@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: 
+    - master
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: ./gradlew clean test jacocoTestReport
+    - uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./build/reports/jacoco/report.xml
+        name: codecov-umbrella
+        fail_ci_if_error: true
